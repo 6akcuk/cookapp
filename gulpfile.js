@@ -12,5 +12,27 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.less('app.less');
+  mix.less('app.less', 'resources/css');
+
+  mix.styles([
+    '**'
+  ], null, 'resources/css');
+
+  mix.scripts([
+    'libs/angular.min.js',
+
+    'libs/jquery.min.js', 'libs/jquery.ui.widget.js', 'libs/bootstrap.min.js', 'libs/select2.min.js',
+    'libs/moments.min.js', 'libs/bootstrap-datetimepicker.min.js',
+
+    'libs/load-image.all.min.js',
+
+  /** FileUpload **/
+    'libs/fileupload/jquery.iframe-transport.js',
+    'libs/fileupload/jquery.fileupload.js', 'libs/fileupload/jquery.fileupload-process.js',
+    'libs/fileupload/jquery.fileupload-audio.js', 'libs/fileupload/jquery.fileupload-image.js',
+    'libs/fileupload/jquery.fileupload-validate.js', 'libs/fileupload/jquery.fileupload-angular.js'
+  ], null, 'resources/js');
+
+  mix.version(['public/css/all.css', 'public/js/all.js']);
+
 });

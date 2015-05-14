@@ -19,6 +19,10 @@ class CreateRolesTable extends Migration
       $table->timestamps();
       $table->softDeletes();
     });
+
+    DB::table('roles')->insert([
+      'name' => 'Admin'
+    ]);
   }
   /**
    * Reverse the migrations.
