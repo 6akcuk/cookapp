@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f42dffdf-a535-4e2b-9fec-7d263240583e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/auth/success.blade.php" afterPath="$PROJECT_DIR$/resources/views/auth/success.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cookapp.iws" />
@@ -878,7 +877,13 @@
       <option name="project" value="LOCAL" />
       <updated>1432641849068</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fix авторизации">
+      <created>1432641986841</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1432641986841</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -931,7 +936,8 @@
     <MESSAGE value="Обновление миграции" />
     <MESSAGE value="Исправление ошибки авторизации через ВКонтакте" />
     <MESSAGE value="Готовая авторизация ВКонтакте" />
-    <option name="LAST_COMMIT_MESSAGE" value="Готовая авторизация ВКонтакте" />
+    <MESSAGE value="Fix авторизации" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix авторизации" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
