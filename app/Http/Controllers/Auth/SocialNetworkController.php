@@ -14,6 +14,7 @@ use App\Models\Geography\Country;
 use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class SocialNetworkController extends Controller {
 
@@ -41,7 +42,11 @@ class SocialNetworkController extends Controller {
     return [$countryModel, $cityModel];
   }
 
-  public function vk($code, $error, $error_description) {
+  public function vk() {
+    $code = Input::get('code');
+    $error = Input::get('error');
+    $error_description = Input::get('error_description');
+
     if ($code) {
       $client = new \GuzzleHttp\Client();
       $response = $client->get('https://oauth.vk.com/access_token?client_id='. config('auth.vk')['app_id'] .'&client_secret='. config('auth.vk')['secret_key'] .'&code='. $code .'&redirect_uri='. config('auth.vk')['redirect_uri'])->json();
@@ -51,10 +56,13 @@ class SocialNetworkController extends Controller {
          * @var $email
          * @var $user_id
          * @var $access_token
+         * @var $secret
          */
         extract($response);
 
-        $user = $client->get("https://api.vk.com/method/users.get?user_id=$user_id&fields=city,country,photo_50,photo_100,photo_200,photo_200_orig&v=". config('auth.vk')['version'] ."&access_token=$access_token")->json();
+        $method = "/method/users.get?user_id=$user_id&fields=city,country,photo_50,photo_100,photo_200,photo_200_orig&v=". config('auth.vk')['version'] ."&access_token=$access_token";
+        $sig = md5($method . $secret);
+        $user = $client->get("https://api.vk.com$method&sig=$sig")->json()['response'][0];
 
         list($country, $city) = $this->_checkCountryAndCity($user['country']['title'], $user['city']['title']);
 
