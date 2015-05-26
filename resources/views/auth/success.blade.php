@@ -1,4 +1,4 @@
 <script type="text/javascript">
-  top.location.href = '/';
+  parent.location = '/';
   self.close();
 </script>
