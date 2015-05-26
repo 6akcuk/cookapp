@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f42dffdf-a535-4e2b-9fec-7d263240583e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/auth/success.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/SocialNetworkController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/SocialNetworkController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -58,14 +59,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SocialNetworkController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SocialNetworkController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/SocialNetworkController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42893082" vertical-offset="1891" max-vertical-offset="3255">
-              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state vertical-scroll-proportion="-4.931818" vertical-offset="2356" max-vertical-offset="3255">
+              <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
               <folding>
                 <element signature="e#44#79#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="success.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/auth/success.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.035796765" vertical-offset="0" max-vertical-offset="866">
+              <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,6 +167,7 @@
         <option value="$PROJECT_DIR$/database/migrations/2015_05_25_162829_add_social_network_to_users.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/SocialNetworkController.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/success.blade.php" />
       </list>
     </option>
   </component>
@@ -855,7 +867,13 @@
       <option name="project" value="LOCAL" />
       <updated>1432639438984</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Исправление ошибки авторизации через ВКонтакте">
+      <created>1432640217994</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1432640217994</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -906,20 +924,14 @@
     <MESSAGE value="Добавим Request от LookApp" />
     <MESSAGE value="Авторизация через ВКонтакте" />
     <MESSAGE value="Обновление миграции" />
-    <option name="LAST_COMMIT_MESSAGE" value="Обновление миграции" />
+    <MESSAGE value="Исправление ошибки авторизации через ВКонтакте" />
+    <option name="LAST_COMMIT_MESSAGE" value="Исправление ошибки авторизации через ВКонтакте" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2015_04_15_173913_create_cities_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4295612" vertical-offset="0" max-vertical-offset="1240">
-          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_02_23_095152_create_role_user_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1408776" vertical-offset="498" max-vertical-offset="1364">
@@ -1310,11 +1322,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/SocialNetworkController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42893082" vertical-offset="1891" max-vertical-offset="3255">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state vertical-scroll-proportion="-4.931818" vertical-offset="2356" max-vertical-offset="3255">
+          <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
           <folding>
             <element signature="e#44#79#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/success.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.035796765" vertical-offset="0" max-vertical-offset="866">
+          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

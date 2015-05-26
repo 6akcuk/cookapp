@@ -88,7 +88,7 @@ class SocialNetworkController extends Controller {
 
         Auth::login($model);
 
-        return redirect()->intended();
+        return view('auth.success');
       }
     }
 
