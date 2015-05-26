@@ -14,10 +14,10 @@ class AddSocialNetworkToUsers extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
 		{
-			$table->string('social_network', 30);
-      $table->integer('social_id', false, true);
-      $table->text('photo');
-      $table->integer('city_id', false, true);
+			$table->string('social_network', 30)->after('remember_token');
+      $table->integer('social_id')->nullable()->unsigned()->after('social_network');
+      $table->text('photo')->after('social_id');
+      $table->integer('city_id')->nullable()->unsigned()->after('photo');
 
       $table->foreign('city_id')
             ->references('id')->on('cities')
