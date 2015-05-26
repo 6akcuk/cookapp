@@ -27,13 +27,13 @@ class SocialNetworkController extends Controller {
    */
   protected function _checkCountryAndCity($country, $city) {
     // Если указана страна, проверим ее наличие в базе.
-    $countryModel = Country::where('name', $country)->first();
+    $countryModel = Country::where('name', '=', $country)->first();
     if (!$countryModel) {
       // Страна не найдена, добавим ее в базу.
       $countryModel = $this->dispatch(new CreateCountryCommand($country, '13'));
     }
 
-    $cityModel = City::where('name', $city)->where('country_id', $countryModel->id)->first();
+    $cityModel = City::where('name', '=', $city)->where('country_id', '=', $countryModel->id)->first();
     if (!$cityModel) {
       // Город не найден, добавим его в базу.
       $cityModel = $this->dispatch(new CreateCityCommand($city, $countryModel->id, '13'));

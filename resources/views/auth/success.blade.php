@@ -1,4 +1,5 @@
 <script type="text/javascript">
-  parent.location = '/';
+  window.opener.postMessage('close', '*');
+  window.opener.location = '/';
   self.close();
 </script>
