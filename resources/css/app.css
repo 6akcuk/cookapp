@@ -6231,5 +6231,21 @@ label,
 .checkbox label {
   font-weight: 300;
 }
+.auth-social-group {
+  padding-bottom: 20px;
+}
+.auth-social-network {
+  text-align: center;
+}
+.auth-social-network .icon {
+  display: inline-block;
+  background: url('/images/panel.png') no-repeat;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.auth-social-network .vk {
+  background-position: 0 -38px;
+}
 
 /*# sourceMappingURL=app.css.map */

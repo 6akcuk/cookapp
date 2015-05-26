@@ -13,6 +13,8 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::get('auth/vk', 'Auth\SocialNetworkController@vk');
+
 Route::controllers([
   'auth' => 'Auth\AuthController',
   'password' => 'Auth\PasswordController',

@@ -32,11 +32,11 @@ class CreateCountryCommand extends Command implements SelfHandling {
 	/**
 	 * Execute the command.
 	 *
-	 * @return void
+	 * @return Country
 	 */
 	public function handle()
 	{
-		Country::create([
+		return Country::create([
       'name' => $this->name,
       'phonecode' => $this->phonecode
     ]);

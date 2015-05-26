@@ -37,11 +37,11 @@ class CreateCityCommand extends Command implements SelfHandling {
 	/**
 	 * Execute the command.
 	 *
-	 * @return void
+	 * @return City
 	 */
 	public function handle()
 	{
-		City::create([
+		return City::create([
       'name' => $this->name,
       'country_id' => $this->country_id,
       'phonecode' => $this->phonecode

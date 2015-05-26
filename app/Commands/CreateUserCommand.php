@@ -54,7 +54,7 @@ class CreateUserCommand extends Command implements SelfHandling {
 	/**
 	 * Execute the command.
 	 *
-	 * @return void
+	 * @return User
 	 */
 	public function handle()
 	{
@@ -66,6 +66,8 @@ class CreateUserCommand extends Command implements SelfHandling {
     ]);
 
     $user->roles()->sync($this->role_list);
+
+    return $user;
 	}
 
 }

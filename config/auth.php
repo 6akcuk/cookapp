@@ -64,4 +64,12 @@ return [
 		'expire' => 60,
 	],
 
+  'vk' => [
+    'app_id' => '4930985',
+    'scope' => 'friends,photos,email,nohttps',
+    'redirect_uri' => 'http://cookapp.club/auth/vk',
+    'secret_key' => 'ZfKWGQbrZsyAmV18HGkm',
+    'version' => '5.33'
+  ]
+
 ];

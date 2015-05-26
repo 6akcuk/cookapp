@@ -6,7 +6,7 @@
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
 				<div class="panel-heading">Авторизация</div>
-				<div class="panel-body">
+				<div class="panel-body" ng-controller="AuthCtrl">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
 							<strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -17,6 +17,16 @@
 							</ul>
 						</div>
 					@endif
+
+          <div class="auth-social-group">
+            <div class="text-center">
+              Авторизация через социальные сети:
+            </div>
+
+            <div class="auth-social-network">
+              <a ng-click="openVK('https://oauth.vk.com/authorize?client_id={{ config('auth.vk')['app_id'] }}&scope={{ config('auth.vk')['scope'] }}&redirect_uri={{ config('auth.vk')['redirect_uri'] }}&response_type=code&v={{ config('auth.vk')['version'] }}&state=&display=popup')" class="icon vk">&nbsp;</a>
+            </div>
+          </div>
 
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">

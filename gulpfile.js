@@ -21,12 +21,16 @@ elixir(function(mix) {
   mix.scripts([
     'libs/angular.min.js',
 
+    'controllers/**',
+
     'libs/jquery.min.js', 'libs/jquery.ui.widget.js', 'libs/bootstrap.min.js', 'libs/select2.min.js',
     'libs/moments.min.js', 'libs/bootstrap-datetimepicker.min.js',
 
     'libs/load-image.all.min.js',
 
-  /** FileUpload **/
+    'libs/ui-bootstrap-tpls-0.13.0.min.js',
+
+    /** FileUpload **/
     'libs/fileupload/jquery.iframe-transport.js',
     'libs/fileupload/jquery.fileupload.js', 'libs/fileupload/jquery.fileupload-process.js',
     'libs/fileupload/jquery.fileupload-audio.js', 'libs/fileupload/jquery.fileupload-image.js',
