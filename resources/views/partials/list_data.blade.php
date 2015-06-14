@@ -24,13 +24,20 @@
             }
             // End of defaults
 
+            // Значение как должно быть
             if ($conf['value'] == 'raw') $value = $obj->$field;
+            // Значение представляет собой список
             elseif ($conf['value'] == 'lists') {
               $value = !isset($conf['list_key']) ? $obj->$field->lists($conf['list_value']) : $obj->$field->lists($conf['list_value'], $conf['list_key']);
 
               if (isset($conf['filter'])) $value = $conf['filter']($value);
               else $value = implode(', ', $value);
             }
+            // Значение является одним из коллекции
+            elseif ($conf['value'] == 'set') {
+              $value = $conf['set'][$obj->$field];
+            }
+            // Значение - внешний ключ
             elseif ($conf['value'] == 'rel') {
               $value = !isset($conf['rel_key']) ? $obj->$field->name : $obj->$field->$conf['rel_key'];
             }

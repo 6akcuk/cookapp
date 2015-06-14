@@ -27,3 +27,6 @@ Route::resources([
   'countries' => 'Geography\CountriesController',
   'cities' => 'Geography\CitiesController'
 ]);
+
+/** Кулинария */
+Route::resource('categories', 'Cook\CategoriesController');

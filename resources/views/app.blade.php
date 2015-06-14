@@ -34,6 +34,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="{{ url('/') }}">Главная</a></li>
+        @if (Authority::can('manage', 'App\Models\User') || Authority::can('manage', 'App\Models\Authority\Role'))
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Пользователи <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -41,6 +42,8 @@
             <li><a href="{{ url('/users') }}">Пользователи</a></li>
           </ul>
         </li>
+        @endif
+        @if (Authority::can('manage', 'App\Models\Geography\Country') || Authority::can('manage', 'App\Models\Geography\City'))
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">География <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -48,6 +51,15 @@
             <li><a href="{{ url('cities') }}">Города</a></li>
           </ul>
         </li>
+        @endif
+        @if (Authority::can('manage', 'App\Models\Cook\Category'))
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Кулинария <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{ url('categories') }}">Категории</a></li>
+          </ul>
+        </li>
+        @endif
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

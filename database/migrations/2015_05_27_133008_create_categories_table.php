@@ -30,7 +30,7 @@ class CreateCategoriesTable extends Migration {
       $table->integer('parent_id')->unsigned();
       $table->tinyInteger('product_type')->unsigned();
       $table->decimal('dry_koef', 6, 4);
-      $table->tinyInteger('salt_max')->unsigned();
+      $table->decimal('salt_max', 5, 2);
       $table->string('biosanpin', 15);
       $table->integer('code')->unsigned();
 

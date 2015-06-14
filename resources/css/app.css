@@ -6247,5 +6247,9 @@ label,
 .auth-social-network .vk {
   background-position: 0 -38px;
 }
+.form-header {
+  font-weight: bold;
+  padding: 10px 0;
+}
 
 /*# sourceMappingURL=app.css.map */
