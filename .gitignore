@@ -4,3 +4,4 @@
 .idea/
 workspace.xml
 tests/_output/*
+/resources/css/*.map
