@@ -57,6 +57,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Кулинария <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{{ url('categories') }}">Категории</a></li>
+            <li><a href="{{ url('products') }}">Продукты</a></li>
           </ul>
         </li>
         @endif

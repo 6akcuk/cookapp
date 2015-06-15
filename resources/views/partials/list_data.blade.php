@@ -8,6 +8,9 @@
   </tr>
   </thead>
   <tbody>
+  <!-- Filters -->
+
+  <!-- Data -->
   @if ($data->count())
     @foreach ($data as $obj)
       <tr>

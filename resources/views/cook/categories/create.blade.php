@@ -8,9 +8,7 @@
 
   {!! Form::open(['route' => 'categories.store', 'class' => 'form-horizontal']) !!}
   @include('cook.categories.form', [
-    'submitButtonText' => 'Добавить категорию',
-    'categoriesList' => $categoriesList,
-    'productTypesList' => $productTypesList
+    'submitButtonText' => 'Добавить категорию'
   ])
   {!! Form::close() !!}
 @stop

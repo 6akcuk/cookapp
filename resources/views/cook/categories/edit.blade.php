@@ -8,9 +8,7 @@
 
   {!! Form::model($category, ['route' => ['categories.update', $category], 'method' => 'PATCH', 'class' => 'form-horizontal']) !!}
   @include('cook.categories.form', [
-    'submitButtonText' => 'Сохранить изменения',
-    'categoriesList' => $categoriesList,
-    'productTypesList' => $productTypesList
+    'submitButtonText' => 'Сохранить изменения'
   ])
   {!! Form::close() !!}
 @stop

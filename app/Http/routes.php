@@ -30,3 +30,4 @@ Route::resources([
 
 /** Кулинария */
 Route::resource('categories', 'Cook\CategoriesController');
+Route::resource('products', 'Cook\ProductsController');

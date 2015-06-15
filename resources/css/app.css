@@ -6231,6 +6231,15 @@ label,
 .checkbox label {
   font-weight: 300;
 }
+.no-float {
+  float: none !important;
+}
+.inline-block {
+  display: inline-block;
+}
+.vertical-align-bottom {
+  vertical-align: bottom;
+}
 .auth-social-group {
   padding-bottom: 20px;
 }
