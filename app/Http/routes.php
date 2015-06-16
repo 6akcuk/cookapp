@@ -31,3 +31,11 @@ Route::resources([
 /** Кулинария */
 Route::resource('categories', 'Cook\CategoriesController');
 Route::resource('products', 'Cook\ProductsController');
+
+Route::model('product', 'App\Models\Cook\Product');
+Route::get('processes/{product}', ['uses' => 'Cook\ProcessesController@index', 'as' => 'processes.index']);
+Route::get('processes/{product}/create', ['uses' => 'Cook\ProcessesController@create', 'as' => 'processes.create']);
+Route::post('processes/{product}', ['uses' => 'Cook\ProcessesController@store', 'as' => 'processes.store']);
+Route::get('processes/{process}/edit', ['uses' => 'Cook\ProcessesController@edit', 'as' => 'processes.edit']);
+Route::patch('processes/{process}', ['uses' => 'Cook\ProcessesController@update', 'as' => 'processes.update']);
+Route::delete('processes/{process}', ['uses' => 'Cook\ProcessesController@destroy', 'as' => 'processes.destroy']);

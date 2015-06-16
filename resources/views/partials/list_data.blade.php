@@ -44,6 +44,10 @@
             elseif ($conf['value'] == 'rel') {
               $value = !isset($conf['rel_key']) ? $obj->$field->name : $obj->$field->$conf['rel_key'];
             }
+            // Значение - флаг
+            elseif ($conf['value'] == 'boolean') {
+              $value = $obj->$field ? 'Да' : 'Нет';
+            }
           ?>
 
           @if ($conf['escape'])

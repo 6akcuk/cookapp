@@ -114,6 +114,8 @@
 
 <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">
+    @if (isset($product)) <a href="{{ route('processes.index', $product) }}" class="btn btn-info">Виды обработки</a> @endif
+
     <button type="submit" class="btn btn-primary">{{ $submitButtonText }}</button>
   </div>
 </div>
