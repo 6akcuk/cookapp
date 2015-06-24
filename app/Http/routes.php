@@ -39,3 +39,13 @@ Route::post('processes/{product}', ['uses' => 'Cook\ProcessesController@store', 
 Route::get('processes/{process}/edit', ['uses' => 'Cook\ProcessesController@edit', 'as' => 'processes.edit']);
 Route::patch('processes/{process}', ['uses' => 'Cook\ProcessesController@update', 'as' => 'processes.update']);
 Route::delete('processes/{process}', ['uses' => 'Cook\ProcessesController@destroy', 'as' => 'processes.destroy']);
+
+Route::resource('nomenclature', 'Cook\NomenclatureController');
+
+/** API */
+Route::group(['prefix' => 'api'], function() {
+  Route::resource('categories', 'Cook\ApiCategoriesController');
+  Route::patch('categories/{category}/move', 'Cook\ApiCategoriesController@move');
+
+  Route::get('products/{category}', 'Cook\ApiProductsController@index');
+});

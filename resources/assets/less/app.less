@@ -19,7 +19,47 @@ body, label, .checkbox label {
 
 @import "auth";
 
+.pizza-loader {
+  position: absolute;
+  top: 300px;
+  left: 49%;
+  background: url('../../images/pizza_loader128.gif') no-repeat;
+
+  &.p64 {
+    width: 64px;
+    height: 64px;
+  }
+  &.p128 {
+    width: 128px;
+    height: 128px;
+  }
+}
+
+.busy-loader-container {
+  background: url('../../images/green_loader64.gif') 50% 20px no-repeat;
+}
+.busy-loader {
+  position: absolute;
+  width: 100%;
+  top: 140px;
+  text-shadow: 1px 1px 2px white, -1px -1px 2px white,-4px 4px 4px white,-4px 4px 4px white;
+  text-align: center;
+}
+
+.busy-loader-container-16 {
+  background: url('../../images/green_loader16.gif') 50% 2px no-repeat;
+}
+.busy-loader-16 {
+  position: absolute;
+  width: 100%;
+  top: 10px;
+  text-shadow: 1px 1px 2px white, -1px -1px 2px white,-4px 4px 4px white,-4px 4px 4px white;
+  text-align: center;
+}
+
 .form-header {
   font-weight: bold;
   padding: 10px 0;
 }
+
+@import "nomenclature";

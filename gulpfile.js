@@ -15,13 +15,18 @@ elixir(function(mix) {
   mix.less('app.less', 'resources/css');
 
   mix.styles([
-    '**'
+    '**',
+
+    'libs/**'
   ], null, 'resources/css');
 
   mix.scripts([
-    'libs/angular.min.js',
+    'libs/angular.js', 'libs/angular/**',
 
-    'controllers/**',
+    'modules/**/index.js',
+    'modules/**',
+
+    'app.js',
 
     'libs/jquery.min.js', 'libs/jquery.ui.widget.js', 'libs/bootstrap.min.js', 'libs/select2.min.js',
     'libs/moments.min.js', 'libs/bootstrap-datetimepicker.min.js',
@@ -31,10 +36,10 @@ elixir(function(mix) {
     'libs/ui-bootstrap-tpls-0.13.0.min.js',
 
     /** FileUpload **/
-    'libs/fileupload/jquery.iframe-transport.js',
+    /**'libs/fileupload/jquery.iframe-transport.js',
     'libs/fileupload/jquery.fileupload.js', 'libs/fileupload/jquery.fileupload-process.js',
     'libs/fileupload/jquery.fileupload-audio.js', 'libs/fileupload/jquery.fileupload-image.js',
-    'libs/fileupload/jquery.fileupload-validate.js', 'libs/fileupload/jquery.fileupload-angular.js'
+    'libs/fileupload/jquery.fileupload-validate.js', 'libs/fileupload/jquery.fileupload-angular.js'**/
   ], null, 'resources/js');
 
   mix.version(['public/css/all.css', 'public/js/all.js']);
