@@ -5,6 +5,7 @@ angular.module('cookApp', [
   'ui-notification',
   'cgBusy',
 
+  'cookApp.authModule',
   'cookApp.nomenclatureModule'
 ], function($interpolateProvider) {
   $interpolateProvider.startSymbol('<%');
