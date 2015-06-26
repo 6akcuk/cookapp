@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Cook;
 
+use App\Commands\Cook\CreateCategoryCommand;
 use App\Commands\Cook\UpdateCategoryCommand;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Cook\CategoryRequest;
@@ -25,8 +26,21 @@ class ApiCategoriesController extends Controller {
     return Response::json($category);
   }
 
+  public function store(CategoryRequest $request) {
+    $this->dispatchFrom(CreateCategoryCommand::class, $request);
+
+    return Response::json(['success' => true]);
+  }
+
   public function update($id, CategoryRequest $request) {
     $this->dispatchFrom(UpdateCategoryCommand::class, $request, compact('id'));
+
+    return Response::json(['success' => true]);
+  }
+
+  public function destroy($id) {
+    $category = Category::findOrFail($id);
+    $category->delete();
 
     return Response::json(['success' => true]);
   }

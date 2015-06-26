@@ -1,5 +1,5 @@
 angular.module('cookApp.nomenclatureModule.controllers')
-.controller('NomenclatureCtrl', function($scope, $http, $location, Category, Share) {
+.controller('NomenclatureCtrl', function($scope, $http, $location, Category, Share, Notification) {
   $scope.data = [];
   $scope.selectedId = false;
   $scope.selectedType = '';
@@ -13,7 +13,7 @@ angular.module('cookApp.nomenclatureModule.controllers')
     else {
       if (model.loaded) scope.toggle();
       else {
-        $scope.categoryProcess = Category.getProducts(model.id).success(function (data) {
+        $scope.categoriesPromise = Category.getProducts(model.id).success(function (data) {
           model.nodes = $.extend({}, model.nodes, data);
 
           model.loaded = true;
@@ -62,24 +62,51 @@ angular.module('cookApp.nomenclatureModule.controllers')
       var sourceModel = event.source.nodeScope.$modelValue;
       var parentModel = event.dest.nodesScope.$parent.$modelValue;
 
-      Category.move(sourceModel.id, parentModel.id).success(function(response) {
+      $scope.categoryMovePromise = Category.move(sourceModel.id, parentModel.id).success(function(response) {
 
       });
     }
   };
 
   $scope.newCategory = function() {
-    if ($scope.selected.$parent.collapsed) {
-      $scope.tgl($scope.selected);
+    function show() {
+      $location.url('nomenclature/category');
+
+      var nodeData = $scope.selected.$modelValue || $scope.selected.$parent.$modelValue;
+      nodeData.nodes.push({
+        id: 0,
+        title: 'Новая категория',
+        type: 'category',
+        product_type: $scope.selected.$modelValue.product_type,
+        nodes: []
+      });
     }
 
-    $scope.categoryProcess && $scope.categoryProcess.success(function() {
-      $location.url('nomenclature/category');
-    });
+    if ($scope.selected.$parent.collapsed) {
+      $scope.tgl($scope.selected);
+
+      $scope.categoriesPromise && $scope.categoriesPromise.success(function() {
+        show();
+      });
+    }
+    else {
+      show();
+    }
+  };
+
+  $scope.rm = function(scope) {
+    if (confirm('Вы хотите удалить категорию?')) {
+      $scope.categoryRemovePromise = Category.destroy(scope.$modelValue.id).success(function() {
+        scope.remove();
+        Notification.success('Категория удалена.');
+      }).error(function() {
+        Notification.error('Произошла ошибка.');
+      });
+    }
   };
 
   function getAll() {
-    $scope.categoryTree = Category.all().success(function(data) {
+    $scope.categoryPromise = Category.all().success(function(data) {
       $scope.data = data;
     }).error(function() {
     });
@@ -88,6 +115,9 @@ angular.module('cookApp.nomenclatureModule.controllers')
   getAll();
 
   $scope.$on('categoryUpdated', function(event, args) {
+    getAll();
+  });
+  $scope.$on('categoryCreated', function(event, args) {
     getAll();
   });
 });

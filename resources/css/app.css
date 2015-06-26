@@ -6766,6 +6766,9 @@ label,
   font-weight: bold;
   padding: 10px 0;
 }
+.nomenclature-buttons {
+  padding: 15px 0 10px;
+}
 .nomenclature-left {
   position: relative;
 }

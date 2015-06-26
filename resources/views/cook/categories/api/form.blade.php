@@ -1,3 +1,6 @@
+<input type="hidden" ng-model="category.parent_id">
+<input type="hidden" ng-model="category.product_type">
+
 <!-- Название Form Input -->
 <div class="form-group">
   <label for="name" class="col-sm-2 control-label">Название:</label>

@@ -31,7 +31,7 @@
           <input type="search" placeholder="Найти" class="form-control" ng-model="query">
         </div>
 
-        <div class="">
+        <div class="nomenclature-buttons">
           <button ng-click="newCategory()" ng-disabled="selectedType != 'root' && selectedType != 'category'" class="btn btn-primary" data-toggle="tooltip" title="Добавить новую категорию">
             <span class="glyphicon glyphicon-plus"></span>
           </button>
@@ -60,7 +60,7 @@
             </div>
 
             <div ng-if="node.type == 'category'" class="pull-left">
-              <a cg-busy="{promise:categoryProcess,backdrop:true,message:'',templateUrl:'busy_16.html'}" class="btn btn-success btn-xs" ng-click="tgl(this)">
+              <a cg-busy="{promise:categoriesPromise,backdrop:true,message:'',templateUrl:'busy_16.html'}" class="btn btn-success btn-xs" ng-click="tgl(this)">
                 <span class="glyphicon" ng-class="{'glyphicon-folder-close': collapsed, 'glyphicon-folder-open': !collapsed}"></span>
               </a>
               <a href="nomenclature/category/<% node.id %>" ng-click="select(this)"><% node.title %></a>
@@ -73,7 +73,10 @@
               <a href="nomenclature/product/<% node.id %>" ng-click="select(this)"><% node.title %></a>
             </div>
 
-            <a ng-if="node.type != 'root' && node.type != 'null'" class="pull-right btn btn-default btn-xs" ui-tree-handle>
+            <a ng-if="node.type != 'root' && node.type != 'null'" cg-busy="{promise:categoryRemovePromise,backdrop:true,message:'',templateUrl:'busy_16.html'}" class="pull-right btn btn-danger btn-xs" ng-click="rm(this)">
+              <span class="glyphicon glyphicon-remove"></span>
+            </a>
+            <a style="margin-right: 10px" cg-busy="{promise:categoryMovePromise,backdrop:true,message:'',templateUrl:'busy_16.html'}" ng-show="node.type != 'root' && node.type != 'null'" class="pull-right btn btn-default btn-xs" ui-tree-handle>
               <span class="glyphicon glyphicon-sort"></span>
             </a>
           </div>
@@ -81,13 +84,13 @@
             <li data-collapsed="true" ng-hide="filter(node, query)" ng-repeat="node in node.nodes" ui-tree-node ng-include="'categories_renderer.html'"></li>
           </ol>
         </script>
-        <div ui-tree="categoryTree" cg-busy="{promise:categoryTree,backdrop:true,message:'Ожидайте..',templateUrl:'busy_template.html'}">
+        <div ui-tree="categoryTree" cg-busy="{promise:categoryPromise,backdrop:true,message:'Ожидайте..',templateUrl:'busy_template.html'}">
           <ol ui-tree-nodes="" ng-model="data" id="tree-root">
-            <li ng-repeat="node in data" ui-tree-node data-nodrag ng-include="'categories_renderer.html'"></li>
+            <li ng-repeat="node in data" ui-tree-node ng-include="'categories_renderer.html'"></li>
           </ol>
         </div>
 
-        <div ng-show="error" class="alert alert-danger">Упс, произошла ошибка!</div>
+        <div ng-show="error" class="alert alert-danger hide">Упс, произошла ошибка!</div>
       </div>
 
       <div class="nomenclature-right col-sm-8">

@@ -20,6 +20,16 @@ angular.module('cookApp.nomenclatureModule.services')
       });
     },
 
+    // создать новую категорию
+    create: function(categoryData) {
+      return $http({
+        method: 'POST',
+        url: 'api/categories',
+        headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
+        data: $.param(categoryData)
+      });
+    },
+
     // сохранить изменения в категории
     save: function(categoryData) {
       return $http({
@@ -27,6 +37,13 @@ angular.module('cookApp.nomenclatureModule.services')
         url: 'api/categories/'+ categoryData.id,
         headers: { 'Content-Type' : 'application/x-www-form-urlencoded' },
         data: $.param(categoryData)
+      });
+    },
+
+    destroy: function(id) {
+      return $http({
+        method: 'DELETE',
+        url: 'api/categories/'+ id
       });
     },
 
